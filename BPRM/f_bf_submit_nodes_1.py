@@ -34,10 +34,10 @@ content_stgbf = "\
 -1 -1 -1\n\
 "
 
-##a directory to collect the error range
-#os.system('if [ -d error ]; then rm -rf error; fi; mkdir error;')
-#os.system('if [ -d success ]; then rm -rf success; fi; mkdir success;')
-#os.system('if [ -d XSECTN_35 ]; then rm -rf XSECTN_35; fi; mkdir XSECTN_35;')
+#a directory to collect the error range
+os.system('if [ -d error ]; then rm -rf error; fi; mkdir error;')
+os.system('if [ -d success ]; then rm -rf success; fi; mkdir success;')
+os.system('if [ -d XSECTN_35 ]; then rm -rf XSECTN_35; fi; mkdir XSECTN_35;')
 
 #set the parameters for nodes
 index_node = 0
