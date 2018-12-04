@@ -47,7 +47,7 @@ for i in range(num_region):
 	#Write the content of the PBS file.
 	content_pbs = "\
 #PBS -l walltime=72:00:00\n\
-#PBS -l nodes=1:ppn=1,mem=13GB\n\
+#PBS -l nodes=1:ppn=1:skylake,mem=13GB\n\
 #PBS -N "+J_PI[1]+"_"+J_PI[2]+"_"+range_energy+"_"+str(i) + "\n\
 #PBS -j oe\n\
 #PBS -S /bin/bash\n\
