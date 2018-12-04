@@ -4,7 +4,7 @@ import os
 #================ INPUT ===================
 num_head_line = 58 #42: energy lines + the level line
 num_level = 8	#number of levels for this initial symmetry
-num_subrange = 2	#if ending at 39, then it should be 40 (FILE INDEX RANGES FROM 0 TO 40)
+num_subrange = 2	#if ending at 39, then it should be 40 (FILE INDEX RANGES FROM 0 TO 39)
 out_file = "XSECTN_total"	#the filename of the output data
 
 #=========================================================================================
