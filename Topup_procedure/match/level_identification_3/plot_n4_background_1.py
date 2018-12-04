@@ -5,7 +5,7 @@ import os
 #============ INPUT ============
 num_levels = 45	#number of levels for this initial symmetry
 
-#276 CC BPRM (n4)
+#BPRM (n4)
 num_head_line_60 = 45 
 num_cc_60 = 218     #NUMBER OF TARGET STATES.
 file_xsectn_60 = "XSECTN_n4"	#file containing the xsectn data
@@ -52,7 +52,7 @@ set logscale y\n\
 set format y \"%T\"\n\
 set ylabel 'log10(PI)'\n\
 set xlabel 'Photon Energy (Ry)'\n\
-plot 'rm_data_60' u 1:2 title '200 CC BPRM' with lines lc rgb 'black',\\\n\
+plot 'rm_data_60' u 1:2 title \'"+str(num_cc_60)+" CC BPRM\' with lines lc rgb 'black',\\\n\
      'fac_background/"+fac_data+"' u 1:2 title 'FAC' with points lc rgb 'red' pt 3 ps 0.5 \n\
 "
 	f_gnuplot = open('plot.plt', 'w')
