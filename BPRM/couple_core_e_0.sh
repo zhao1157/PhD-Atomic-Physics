@@ -6,7 +6,7 @@
 #First let's specify the parity for each configuration
 #**Notice, the first element is just a space-holder so that the useful data start with
 #index of 1 (CF starts with 1)
-maxpw=7 #max angular momentum of partial wave
+maxpw=9 #max angular momentum of partial wave
 parity_core=('SPACE_HOLDER' 1 0 0 1 0 1 0 1 0 1 0 0 1 0 1 0 1)
 
 #Then let's specify the ssout file and the starting and ending line of the energy table,
