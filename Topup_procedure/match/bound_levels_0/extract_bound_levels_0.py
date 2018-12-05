@@ -92,16 +92,3 @@ for symtry in JJ_Pi:
 		f.write('{0:6s}{1:6s}{2:9.7f}{3:>6s}\n'.format(level, lev[level]['vnl'][:-2], (lev[level]['energy']-en_grd_target)/13.605693/charge_target/charge_target, symtry))
 	f_neg.close()
 	f_opo.close()
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
