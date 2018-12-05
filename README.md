@@ -59,6 +59,11 @@ This script is used to extract the threshold and last point in bprm data for tai
   - **combine_other_targets_3/**: combines the tailed-BPRM data with those in **generate_PI_2/**.
 
 #### 2.3. other_levels_2/
-
+I'm going to collect all the other bound levels and calculate the photoionization cross section due to the core configurations included in BPRM calculation and the above top up calculation.
+- **bound_levels_0/**: extracts the bound levels that contribute to the photoionization cross section, in terms of **2J** and **π**. 
+--------
+- **create_mesh_1/**: creates energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between adjacent thresholds. 
+--------
+- **generate_PI_2/**: after mesh being generated, calculates the photoionization cross section.
 
 
