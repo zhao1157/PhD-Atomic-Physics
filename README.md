@@ -24,10 +24,14 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
 - **bound_levels_0/**: extracts the bound levels that contribute to the photoionization cross section, in terms of **2J** and **π**. 
 --------
 - **create_mesh_1/**: creates energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between adjacent thresholds. 
+--------
 - **generate_PI_2/**: after mesh being generated, the scripts in this folder calculates the photoionization cross section.
+--------
 - **level_identification_3/**: 
   - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. Correction is needed if they don't agree well by switching to other reasonable levels.
+--------
 - **ratio_analysis_4/**: extracts the information of the levels whose ratios fall within a range. 
+--------
 - **bb_5/**: does the bound-bound top up calculation.
   - *create_e_file.py*: creates e-file needed in opacity calculation. Bound-pure-bound: uncomment lines 72, 78, 79, comment out 73; bound-quasi-bound: comment out lines 72, 78, 79, uncomment 73.
   - *create_f_file.py*: creates f-file needed in opacity calculation. Bound-pure-bound: uncomment line 73, comment out 74; bound-quasi-bound: comment out line 73, uncomment 74.
