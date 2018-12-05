@@ -44,6 +44,14 @@ This script is used to extract the threshold and last point in bprm data for tai
 
 #### tail_other_targets_1/0-16/ 
 - **bound_levels_0/**: only consider the transitions to other core configurations as we want to extract the thresholds due to them, so that the energy mesh can be created appropriately.
+--------
+- **create_mesh_1/**: the filenames of these scripts are the same as before, but the content can be drastically different. For each level, the tail is created so that any adjacent thresholds have 10 points between them. 
+--------
+- **generate_PI_2/**: only the transitions due to the core configuraitons included in BPRM calculation are needed. 
+--------
+- **combine_tail_3/**: attaches the scaled RDW tail to BPRM and outputs the ratio used for each level.
+
+##### other_targets_4/
 
 
 
