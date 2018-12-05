@@ -38,5 +38,15 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
   
 ### Topup_procedure/topup/
 In this folder, I will extend the BPRM data to higher energy region using RDW method, add the contribution from other core configurations, and include the other bound state levels that are not included in BPRM calculation. To calculate the photoionization cross section tail, for each bound state level, I multiply the RDW value at the last energy point in BPRM calculation so that it's equal to the BPRM value, and this factor is applied to all the rest RDW values in the higher energy region. The energy mesh used is divided into two parts. One is the mesh used in BPRM claculation from the lowest ionization threshold to the last point. The other is from the last point in BPRM claculation to 500 Ry of photoelectron energy, and it's created such that 10 points are assigned uniformly between adjacent thresholds of other core configurations that I'm going to describe next. The contribution from other core configurations are added using the mesh that has already considered the thresholds of these core configurations. Lastly, the other bound state levles are included, considering the contribution from all the core configurations used in BPRM and others as described above.
-  
+
+#### extract_bprm_tail_n4_0/
+This script is used to extract the threshold and last point in bprm data for tail-processing.
+
 #### tail_other_targets_1/0-16/ 
+- **bound_levels_0/**: only consider the transitions to other core configurations as we want to extract the thresholds due to them, so that the energy mesh can be created appropriately.
+
+
+
+
+
+
