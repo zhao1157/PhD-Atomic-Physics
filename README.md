@@ -50,7 +50,7 @@ This script is used to extract the threshold and last point in bprm data for tai
 - **generate_PI_2/**: only the transitions due to the core configuraitons included in BPRM calculation are needed. 
 --------
 - **combine_tail_3/**: attaches the scaled RDW tail to BPRM and outputs the ratio used for each level.
-
+--------
 - **other_targets_4/**: I'm going to add the contribution from other core configurations to the tailed-BPRM data. Before proceeding, I need to create a symlink to '../bound_levels_0/'.
   - **create_mesh_1/**: extracts the energy mesh for each level.
   - **generate_PI_2/**: calculates the photoionization cross section.
