@@ -23,5 +23,7 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
 ### Topup_procedure/match/
 - **bound_levels_0/**: extracts the bound levels that contribute to the photoionization cross section, in terms of **2J** and **π**. 
 - **create_mesh_1/**: creates energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between adjacent thresholds. 
-
+- **generate_PI_2/**: after mesh being generated, the scripts in this folder calculates the photoionization cross section.
+- **level_identification_3/**: 
+  - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. Correction is needed if they don't agree well by switch to other reasonable levels.
   
