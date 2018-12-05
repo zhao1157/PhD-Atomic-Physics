@@ -4,8 +4,7 @@
 #to run this script with python3, ./create_e_file.py
 
 #set parameters
-#The first file is the energy file, the second is the one contains part of the 454 levles,
-#the third is the one contains the none of the 454 levels.
+#The first file is the energy file, the rest ones are all relevant files.
 file_en_454_rest = ['../outfile/fe18a.en', '../outfile/fe18a.tr']	#['fe17a_L.en', 'fe17a_L_454.tr', 'fe17a_L_rest.tr']
 #Set the file of the bound levels included in rm.
 file_bound_rm = '../level_identification_3/total_levels_corrected'
