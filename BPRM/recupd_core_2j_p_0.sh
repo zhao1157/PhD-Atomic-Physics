@@ -28,8 +28,6 @@ do
 	P_CORE[${i}]=${parity_core[${line[6]}]}
 done
 
-#sed -n 1,4p ${recupd_org} >> ${outfile}
-
 for i in $(seq ${line_begin} ${line_end})
 do
 	printf "%3d" ${TWOJ_CORE[${i}]} >> ${outfile}
@@ -43,23 +41,3 @@ do
 done 
 
 printf '\n' >> ${outfile}
-
-#sed -n 7,27p ${recupd_org} >> ${outfile}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
