@@ -11,7 +11,7 @@ en_lowest_target = 1.26007280E+03	 #1.26005903E+03 #1.26009943E+03
 charge_target = 17
 #Set the file of the bound levels included in rm.
 file_bound_rm = '../level_identification_3/total_levels_corrected'
-#set the lowet 2J value
+#set the lowest 2J value
 JJ_Min = 0
 
 #==========================BLACK BOX=================================
