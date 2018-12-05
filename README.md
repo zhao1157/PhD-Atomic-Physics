@@ -52,7 +52,8 @@ This script is used to extract the threshold and last point in bprm data for tai
 - **combine_tail_3/**: attaches the scaled RDW tail to BPRM and outputs the ratio used for each level.
 
 ##### other_targets_4/
-
+Before proceeding, I need to create a link to '../bound_levels_0/'
+- **
 
 
 
