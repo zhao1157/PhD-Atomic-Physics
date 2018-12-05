@@ -16,3 +16,6 @@ This repository includes the main code I wrote for my research in pursuit of an 
 
 - Combine sub-range data into one:
   - *combine_ranges_2.py*: this script combines the photoionization cross section of many sub-ranges into a whole one. This script was developed in a situation where some of sub-ranges are divided futher into another 10 sub-sub-ranges, so in the script you will see several appearance of `range(10)`.
+
+## Topup_procedure
+In this folder, I show the procedure of doing the level-matching and top up. To match the levels, they are categorized by quantumn numbers **2J** and **π**, and ordered in energy, and the photoionization cross section is plotted for both RDW and BPRM. A level is matched when quantumn numbers **2J** and **π**, energy and photoionization cross section agree well. After being matched, the photoionization cross section of each level is extended to high energy region using RDW method, multiplying a factor to RDW data so that it's continuous from BPRM and RDW. The contribution from other core configurations is added aferwards.  The other bound state levels are collected and the photoionization cross section of them is computed considering all the core configurations. The bound-bound top up calculation is divided into two parts. One is from bound to pure bound states, and the other is to quasi-bound states.
