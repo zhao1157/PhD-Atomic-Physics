@@ -3,5 +3,5 @@ This repository includes the main code I wrote for my research in pursuit of an 
 ## BPRM
 - Input files for BPRM:
   - *couple_core_e_0.sh*: in stg2, we need to couple the quantumn numbers **S** and **L** of the target states with those of the outer electron, so this script does this job.
-  - *recupd_core_2j_p_0.sh*: in recupd, it can be really tedious to manually input the **2J** and **π**
+  - *recupd_core_2j_p_0.sh*: in recupd, it can be really tedious to manually input the **2J** and **π** values of the target, so this script collects this information and outputs it appropriately.
 
