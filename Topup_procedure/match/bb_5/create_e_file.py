@@ -77,7 +77,6 @@ for f_read in read_en_454_rest[1:]:
 				##if not line[2] in bound_rm:
 				##	lower.add(line[2])
 				
-	#Since now, we will read the lower levels.
 	f_read.close()	
 #print ('extra_lower: {0}'.format(len(lower)))
 
