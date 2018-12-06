@@ -20,7 +20,7 @@ This repository includes the main code I wrote for my research in pursuit of an 
 ## II. Topup_procedure/
 In this folder, I show the procedure of doing the level-matching and top up. To match the levels, they are categorized by quantumn numbers **2J** and **π**, and ordered in energy, and the photoionization cross section is plotted for both RDW and BPRM. A level is matched when quantumn numbers **2J** and **π**, energy and photoionization cross section agree well. After being matched, the photoionization cross section of each level is extended to high energy region using RDW method, multiplying a factor to RDW data so that it's continuous from BPRM and RDW. The contribution from other core configurations is added aferwards.  The other bound state levels are collected and the photoionization cross section of them is computed considering all the core configurations. The bound-bound top up calculation is divided into two parts. One is from bound to pure bound states, and the other is to quasi-bound states.
 
-### 1. Topup_procedure/match/
+### 1. match/
 - **bound_levels_0/**: extracts the bound levels that contribute to the photoionization cross section, in terms of **2J** and **π**. 
 --------
 - **create_mesh_1/**: creates energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between adjacent thresholds. 
@@ -36,7 +36,7 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
   - *create_e_file.py*: creates e-file needed in opacity calculation. Bound-pure-bound: uncomment lines 72, 78, 79, comment out 73; bound-quasi-bound: comment out lines 72, 78, 79, uncomment 73.
   - *create_f_file.py*: creates f-file needed in opacity calculation. Bound-pure-bound: uncomment line 73, comment out 74; bound-quasi-bound: comment out line 73, uncomment 74.
   
-### 2. Topup_procedure/topup/
+### 2. topup/
 In this folder, I will extend the BPRM data to higher energy region using RDW method, add the contribution from other core configurations, and include the other bound state levels that are not included in BPRM calculation. To calculate the photoionization cross section tail, for each bound state level, I multiply the RDW value at the last energy point in BPRM calculation so that it's equal to the BPRM value, and this factor is applied to all the rest RDW values in the higher energy region. The energy mesh used is divided into two parts. One is the mesh used in BPRM claculation from the lowest ionization threshold to the last point. The other is from the last point in BPRM claculation to 500 Ry of photoelectron energy, and it's created such that 10 points are assigned uniformly between adjacent thresholds of other core configurations that I'm going to describe next. The contribution from other core configurations are added using the mesh that has already considered the thresholds of these core configurations. Lastly, the other bound state levles are included, considering the contribution from all the core configurations used in BPRM and others as described above.
 
 #### 2.1. extract_bprm_tail_n4_0/
