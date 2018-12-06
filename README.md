@@ -1,5 +1,5 @@
 # PhD-Atomic-Physics
-This repository includes the main code I wrote for my research in pursuit of an atomic physics PhD degree at the Ohio State University. Note: usually the order of executing the scripts in a folder is the same as the index just before the extension. For example, *a_1.sh*, and *b_2.sh* are in the same directory, so the order of executing them is *a_1.sh* followed by *b_2.sh*. The same rules applies to directories.
+This repository includes the main code I wrote for my research in pursuit of an atomic physics PhD degree at the Ohio State University. I mainly programmed in **Python**, in which sometimes **Bash** command lines are executed, and in some cases, I even used **AWK** as I was learning it and felt it was really cool to process files. I used **Gnuplot** a lot especially in the level-matching step where I have to plot hundreds of figures. Sometimes I used **Matplotlib**, e.g. see folder **paper**.  Note: usually the order of executing the scripts in a folder is the same as the index just before the extension. For example, *a_1.sh*, and *b_2.sh* are in the same directory, so the order of executing them is *a_1.sh* followed by *b_2.sh*. The same rules applies to directories.
 
 ## I. BPRM/
 - Input files for BPRM:
