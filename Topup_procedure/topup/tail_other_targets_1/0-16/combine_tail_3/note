@@ -1,0 +1,1 @@
+combine_tail.py was written originally to create the tail by multiplying the RDW tail by a ratio, but later we decided to take RDW as it is, so we comment out line 34, and set ratio as 1
