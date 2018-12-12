@@ -31,7 +31,8 @@ for sym in sym_level:
 
 		line_bp = line.split()
 		line_tail = f_tail.readline().split()
-		ratio = float(line_bp[1])/float(line_tail[1])
+		#ratio = float(line_bp[1])/float(line_tail[1]) #comment out, take RDW as it is.
+		ratio = 1
 		f_ratio.write(str(ratio)+'\n')
 		
 		for line in f_tail:
