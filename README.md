@@ -66,7 +66,7 @@ I'm going to collect all the other bound levels and calculate the photoionizatio
 --------
 - **generate_PI_2/**: after mesh being generated, calculates the photoionization cross section.
 
-### fe17_fe18_matched_levels/
+### 3. fe17_fe18_matched_levels/
 In this folder, the photoionization cross section of the matched levels are shown.
 
 ## III. paper/
