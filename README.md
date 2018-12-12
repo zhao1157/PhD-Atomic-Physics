@@ -67,7 +67,7 @@ I'm going to collect all the other bound levels and calculate the photoionizatio
 - **generate_PI_2/**: after mesh being generated, calculates the photoionization cross section.
 
 ### 3. fe17_fe18_matched_levels/
-In this folder, the photoionization cross section of the matched levels are shown.
+In this folder, the photoionization cross section of the matched levels are shown. The oscillation at the right end of BPRM is deleted and not counted in the opacity calculation.
 
 ## III. paper/
 In this folder, it contains the scripts that I used to create the plots in the relevant paper (link to be updated).
