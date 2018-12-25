@@ -52,11 +52,12 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
 --------
 - **generate_PI_2/**: after mesh being generated, the scripts in this folder calculate the photoionization cross section.
   - **fe18_n3.py**: load the existing energy binary file and RRTable binary file and interpret and extrapolate the photoionization 
-  cross section for each level in the energy mesh created in **create_mesh_1/**. In this script, we use **fac.InterpCross** to output the
-  data for each transition and then to do the summation over all transitions for each level. We can also use **fac.TotalPICross** to 
+  cross section for each level in the energy mesh created in **create_mesh_1/**. In this script, we use **fac.InterpCross()** to 
+  output the
+  data for each transition and then to do the summation over all transitions for each level. We can also use **fac.TotalPICross()** to 
   get the summed result, but in many situtations the energy mesh and number of transitions are large which results in the large memory
   requirement. Thus we abandon it in general.
-  - **add_awk.sh**: after **fac.InterpCross** generates the data for all transitions, it reads the data and sums it up in unit of Mb.
+  - **add_awk.sh**: after **fac.InterpCross()** generates the data for all transitions, it reads the data and sums it up in unit of Mb.
 --------
 - **level_identification_3/**: 
   - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. Correction is needed if they don't agree well by switching to other reasonable levels.
