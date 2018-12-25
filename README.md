@@ -32,7 +32,10 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
 - **level_identification_3/**: 
   - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. Correction is needed if they don't agree well by switching to other reasonable levels.
 --------
-- **ratio_analysis_4/**: extracts the information of the levels whose ratios fall within a range. 
+- **ratio_analysis_4/**: extracts the information of the levels whose ratios fall within a range. This script is useful if you want to
+  get a rough idea of how well the calculation of BPRM and RDW agrees with each other at the last point, and what kind of levels do well
+  and not well. The order of the levels written in files **level_file** and **ratio_file** has to be the same. Usually it is 0_0 (2J_π), 
+  0_1, 2_0, 2_1, ..., 16_0, 16_1 for Fe XVII, but of course it can vary as long as they are in the same fashion in these two files.
 --------
 - **bb_5/**: does the bound-bound top up calculation.
   - *create_e_file.py*: creates e-file needed in opacity calculation. In line 7, variable **ind_max_remove** represents the maximum level
