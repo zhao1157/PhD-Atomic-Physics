@@ -62,8 +62,14 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
 - **run_JJ_Pi.sh**: after the bound levels are extracted in directory **bound_levels_0/**, we are ready to generate the photoionization
 cross section for each level in each symmetry category **2J_π**.
 --------
-- **level_identification_3/**: 
-  - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. Correction is needed if they don't agree well by switching to other reasonable levels.
+- **level_identification_3/**: As the levels are sorted in energy-ascending order for each symmetry **2J_π** just as in BPRM calculation,
+we are ready to just plot the the photoionization cross section of RDW and BPRM. While checking how well they match, we need to make
+sure the energy agrees well. In some situations, we need to switch or shift the levels so that they are matched. After finishing matching
+the levels, we are ready to print out the level information and find out the configuraiton of each level.
+  - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. 
+  Correction is needed if they don't agree well by switching or shifting to other reasonable levels. File *correct_match_n4* or 
+  *correct_match_n3* contains the information of level switching. These numbers represent the LINE INDEX of the level in **2J_π_neg**  
+  file.
 --------
 - **ratio_analysis_4/**: extract the information of the levels whose ratios fall within a range. This script is useful if you want to
   get a rough idea of how well the calculation of BPRM and RDW agrees with each other at the last point, and what kind of levels do well
