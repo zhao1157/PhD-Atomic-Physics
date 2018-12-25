@@ -35,8 +35,14 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
 - **ratio_analysis_4/**: extracts the information of the levels whose ratios fall within a range. 
 --------
 - **bb_5/**: does the bound-bound top up calculation.
-  - *create_e_file.py*: creates e-file needed in opacity calculation. 
-  - *create_f_file.py*: creates f-file needed in opacity calculation.
+  - *create_e_file.py*: creates e-file needed in opacity calculation. In line 7, variable **ind_max_remove** represents the maximum level
+    index that bound-quasi-bound transitions should be neglected as they are already included in BPRM. In the **fac.Structure()** part,
+    the bound configurations have to be in front of the other quasi-bound configurations. In line 73, it excludes the transitions that are
+    from the positive-energy levels, the transitions that have already been included in BPRM stgbb, and the ones that have already been 
+    included in bound-free, i.e. resonances due to n=2 core configurations coupled with an outer electron. In list **file_en_454_rest**, 
+    the first file has to be energy file, followed by the transition files. These transition files have to share the same energy file,
+    otherwise when reading different transition files, levels will be messed up.
+  - *create_f_file.py*: creates f-file needed in opacity calculation. The same variable settings as in file *create_e_file.py*.
   
 ### 2. topup/
 In this folder, I will extend the BPRM data to higher energy region using RDW method, add the contribution from other core configurations, and include the other bound state levels that are not included in BPRM calculation. To calculate the photoionization cross section tail, for each bound state level, I multiply the RDW value at the last energy point in BPRM calculation so that it's equal to the BPRM value, and this factor is applied to all the rest RDW values in the higher energy region. The energy mesh used is divided into two parts. One is the mesh used in BPRM claculation from the lowest ionization threshold to the last point. The other is from the last point in BPRM claculation to 500 Ry of photoelectron energy, and it's created such that 10 points are assigned uniformly between adjacent thresholds of other core configurations that I'm going to describe next. The contribution from other core configurations are added using the mesh that has already considered the thresholds of these core configurations. Lastly, the other bound state levles are included, considering the contribution from all the core configurations used in BPRM and others as described above.
