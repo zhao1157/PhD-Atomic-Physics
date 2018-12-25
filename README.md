@@ -68,8 +68,14 @@ sure the energy agrees well. In some situations, we need to switch or shift the 
 the levels, we are ready to print out the level information and find out the configuraiton of each level.
   - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. 
   Correction is needed if they don't agree well by switching or shifting to other reasonable levels. File *correct_match_n4* or 
-  *correct_match_n3* contains the information of level switching. These numbers represent the LINE NUMBER of the level in 
-  *../bound_levels_0/2J_π_neg* file, assuming the BPRM levels are also written in a file in the same format.
+  *correct_match_n3*, where n3 or n4 refers to n=3 or n=4 core configuraitons, contains the information of level switching. These numbers 
+  represent the LINE NUMBER of the level in *../bound_levels_0/2J_π_neg* file, assuming the BPRM levels are also written in a file in
+  the same format. In the script, we need to set the number of levels in the symmetry of interest in BPRM calculation. Usually the number
+  of levels obtained in BPRM calculation is no more than that got from RDW. Required is the number of lines that contain the energies of 
+  the core states in the front of each level data set in BPRM calculation. 
+  - *level_identification_2.py*: in this script, the file that contains the correction in matching step is needed, and *level_JJ_Pi* is a 
+  dictionary contains 2J_π:number_of_levels_in_BPRM.
+  - *cat.sh*: a simple script to concatenate the level information into a single file that is needed in **ratio_analysis_4/**.
 --------
 - **ratio_analysis_4/**: extract the information of the levels whose ratios fall within a range. This script is useful if you want to
   get a rough idea of how well the calculation of BPRM and RDW agrees with each other at the last point, and what kind of levels do well
