@@ -46,6 +46,9 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
   various transitions.
   - **creat_fine_mesh_5.py**: create an energy mesh for each level, with 10 points in any adjacent shresholds, and 20 points between the 
   last threshold and the maximal energy point.
+  - **test_same.awk**: it is called inside of **creat_fine_mesh_5.py** to test the fine mesh whether the adjacent points are the same 
+  or not. Usually I do not use it.
+  - **run.sh**: show the order of executing the scripts above. It is usually called in a loop to run these steps.
 --------
 - **generate_PI_2/**: after mesh being generated, the scripts in this folder calculate the photoionization cross section.
 --------
