@@ -20,56 +20,56 @@ If you are interested in doing the top-up calculation for other ions, feel free 
   - *combine_ranges_2.py*: combine the photoionization cross section of many sub-ranges into a whole one. This script was developed in a situation where some of sub-ranges are divided futher into another 10 sub-sub-ranges, so in the script you will see several appearance of `range(10)`.
 
 ## II. Topup_procedure/
-In this folder, I show the procedure of doing the level-matching and top up. To match the levels, they are categorized by quantumn numbers **2J** and **π**, and ordered in energy, and the photoionization cross section is plotted for both RDW and BPRM. A level is matched when quantumn numbers **2J** and **π**, energy and photoionization cross section agree well. After being matched, the photoionization cross section of each level is extended to high energy region using RDW method, multiplying a factor to RDW data so that it's continuous from BPRM and RDW. The contribution from other core configurations is added aferwards.  The other bound state levels are collected and the photoionization cross section of them is computed considering all the core configurations. The bound-bound top up calculation is divided into two parts. One is from bound to pure bound states, and the other is to quasi-bound states.
+In this folder, I show the procedure of doing the level-matching and top up. To match the levels, they are categorized by quantumn numbers *2J* and *π*, and ordered in energy, and the photoionization cross section is plotted for both RDW and BPRM. A level is matched when quantumn numbers *2J* and *π*, energy and photoionization cross section agree well. After being matched, the photoionization cross section of each level is extended to high energy region using RDW method, multiplying a factor to RDW data so that it's continuous from BPRM and RDW. The contribution from other core configurations is added aferwards.  The other bound state levels are collected and the photoionization cross section of them is computed considering all the core configurations. The bound-bound top up calculation is divided into two parts. One is from bound to pure bound states, and the other is to quasi-bound states.
 
 ### 1. match/
-- **bound_levels_0/**: extract the bound levels that contribute to the photoionization cross section, in terms of **2J** and **π**. 
-  - **extract_bound_levels_0.py**: input the files that contain the energy and rrtable, the number of electrons of the bound
+- **bound_levels_0/**: extract the bound levels that contribute to the photoionization cross section, in terms of *2J* and *π*. 
+  - *extract_bound_levels_0.py*: input the files that contain the energy and rrtable, the number of electrons of the bound
     configurations, the charge of the core confgurations, and the energy of the ground state of the core configurations in unit of ev.
     Note it is more accurate to use the energy of the ground state of the core with same-n-complex configuration interaction, though
     different-n-complex configuration interaction of the core configurations is used to maximally reproduce the background of BPRM 
-    calculation. It outputs the levels in energy ascending order for each symmetry **2J_π**, and the negative and positive levels are 
+    calculation. It outputs the levels in energy ascending order for each symmetry *2J_π*, and the negative and positive levels are 
     separated.
 --------
 - **create_mesh_1/**: create energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between
   adjacent thresholds. 
-  - **extract_trans_awk_1.sh**: collect the transition information for the levels of interest, i.e. the header line for each transition.
+  - *extract_trans_awk_1.sh*: collect the transition information for the levels of interest, i.e. the header line for each transition.
   Usually we need to create a symlink that points to a file which contains the levels we are interested in, e.g. 
-  `ln -s ../bound_levels_0/0_0_neg bound_levels_0` (see script **run_JJ_Pi.sh** in **match/** directory).
-  - **collect_thresh_awk_2.sh**: collect the various thresholds for each level, and output the level index and its thresholds in one 
+  `ln -s ../bound_levels_0/0_0_neg bound_levels_0` (see script *run_JJ_Pi.sh* in **match/** directory).
+  - *collect_thresh_awk_2.sh*: collect the various thresholds for each level, and output the level index and its thresholds in one 
   single line.
-  - **order_thresh_awk_3.sh**: sort the thresholds for each level in ascending order, and append each level with an energy that is 
+  - *order_thresh_awk_3.sh*: sort the thresholds for each level in ascending order, and append each level with an energy that is 
   105 Ry (or another range of your interest) more than the lowest threshold, and remove other thresholds that are the same as 
   one threshold.
-  - **add_mini_diff_awk_4.sh**: append the smallest difference between adjacent thresholds at the end of each line for each level. This
+  - *add_mini_diff_awk_4.sh*: append the smallest difference between adjacent thresholds at the end of each line for each level. This
   value is useful when creating energy mesh and 10th of it is used as the increment. So in this way we try to delineat the edges of 
   various transitions.
-  - **creat_fine_mesh_5.py**: create an energy mesh for each level, with 10 points in any adjacent shresholds, and 20 points between the 
+  - *creat_fine_mesh_5.py*: create an energy mesh for each level, with 10 points in any adjacent shresholds, and 20 points between the 
   last threshold and the maximal energy point.
-  - **test_same.awk**: it is called inside of **creat_fine_mesh_5.py** to test the fine mesh whether the adjacent points are the same 
+  - *test_same.awk*: it is called inside of *creat_fine_mesh_5.py* to test the fine mesh whether the adjacent points are the same 
   or not. Usually I do not use it.
-  - **run.sh**: show the order of executing the scripts above. It is usually called in a loop to run these steps.
+  - *run.sh*: show the order of executing the scripts above. It is usually called in a loop to run these steps.
 --------
 - **generate_PI_2/**: after mesh being generated, the scripts in this folder calculate the photoionization cross section.
-  - **fe18_n3.py**: load the existing energy binary file and RRTable binary file and interpret and extrapolate the photoionization 
-  cross section for each level in the energy mesh created in **create_mesh_1/**. In this script, we use **fac.InterpCross()** to 
+  - *fe18_n3.py*: load the existing energy binary file and RRTable binary file and interpret and extrapolate the photoionization 
+  cross section for each level in the energy mesh created in **create_mesh_1/**. In this script, we use *fac.InterpCross()* to 
   output the
-  data for each transition and then to do the summation over all transitions for each level. We can also use **fac.TotalPICross()** to 
+  data for each transition and then to do the summation over all transitions for each level. We can also use *fac.TotalPICross()* to 
   get the summed result, but in many situtations the energy mesh and number of transitions are large which results in the large memory
   requirement. Thus we abandon it in general.
-  - **add_awk.sh**: after **fac.InterpCross()** generates the data for all transitions, it reads the data and sums it up in unit of Mb.
+  - *add_awk.sh*: after *fac.InterpCross()* generates the data for all transitions, it reads the data and sums it up in unit of Mb.
 --------
-- **run_JJ_Pi.sh**: after the bound levels are extracted in directory **bound_levels_0/**, we are ready to generate the photoionization
-cross section for each level in each symmetry category **2J_π**.
+- *run_JJ_Pi.sh*: after the bound levels are extracted in directory **bound_levels_0/**, we are ready to generate the photoionization
+cross section for each level in each symmetry category 2J_π.
 --------
-- **level_identification_3/**: As the levels are sorted in energy-ascending order for each symmetry **2J_π** just as in BPRM calculation,
+- **level_identification_3/**: As the levels are sorted in energy-ascending order for each symmetry 2J_π just as in BPRM calculation,
 we are ready to just plot the the photoionization cross section of RDW and BPRM. While checking how well they match, we need to make
 sure the energy agrees well. In some situations, we need to switch or shift the levels so that they are matched. After finishing matching
 the levels, we are ready to print out the level information and find out the configuraiton of each level.
   - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. 
   Correction is needed if they don't agree well by switching or shifting to other reasonable levels. File *correct_match_n4* or 
   *correct_match_n3* contains the information of level switching. These numbers represent the LINE NUMBER of the level in 
-  **../bound_levels_0/2J_π_neg** file, assuming the BPRM levels are also written in a file in the same format.
+  *../bound_levels_0/2J_π_neg* file, assuming the BPRM levels are also written in a file in the same format.
 --------
 - **ratio_analysis_4/**: extract the information of the levels whose ratios fall within a range. This script is useful if you want to
   get a rough idea of how well the calculation of BPRM and RDW agrees with each other at the last point, and what kind of levels do well
