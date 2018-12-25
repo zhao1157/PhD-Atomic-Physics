@@ -31,7 +31,10 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
     calculation. It outputs the levels in energy ascending order for each symmetry **2J_π**, and the negative and positive levels are 
     separated.
 --------
-- **create_mesh_1/**: create energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between adjacent thresholds. 
+- **create_mesh_1/**: create energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between
+  adjacent thresholds. 
+  - **extract_trans_awk_1.sh**: collect the transition information for the levels of interest. Usually we need to create a symlink that
+  points to a file which contains the levels we are interested in, e.g. `ln -s ../bound_levels_0/0_0_neg bound_levels_0`.
 --------
 - **generate_PI_2/**: after mesh being generated, the scripts in this folder calculate the photoionization cross section.
 --------
