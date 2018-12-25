@@ -81,15 +81,15 @@ the levels, we are ready to print out the level information and find out the con
   get a rough idea of how well the calculation of BPRM and RDW agrees with each other at the last point, and what kind of levels do well
   and not well. The order of the levels written in files *level_file* and *ratio_file* has to be the same. Usually it is 0_0 (2J_π), 
   0_1, 2_0, 2_1, ..., 16_0, 16_1 for Fe XVII, but of course it can vary as long as they are in the same fashion in these two files.
-  - *ratio_configurations.py*: it collects the levels whose ratio <0.5 in 0, <=0.5&<1.5 in 1, <=1.5&<2.5 in 2, etc., the rest of levels 
+  - *ratio_configurations.py*: it collects the levels whose ratio <0.5 in 0, >=0.5&<1.5 in 1, >=1.5&<2.5 in 2, etc., the rest of levels 
   in n (in line 8, `ratios = range(n)`).
 --------
 - **bb_5/**: does the bound-bound top up calculation.
-  - *create_e_file.py*: create e-file needed in opacity calculation. In line 7, variable **ind_max_remove** represents the maximum level
-    index that bound-quasi-bound transitions should be neglected as they are already included in BPRM. In the **fac.Structure()** part,
+  - *create_e_file.py*: create e-file needed in opacity calculation. In line 7, variable *ind_max_remove* represents the maximum level
+    index that bound-quasi-bound transitions should be neglected as they are already included in BPRM. In the *fac.Structure()* part,
     the bound configurations have to be in front of the other quasi-bound configurations. In line 73, it excludes the transitions that are
     from the positive-energy levels, the transitions that have already been included in BPRM stgbb, and the ones that have already been 
-    included in bound-free, i.e. resonances due to n=2 core configurations coupled with an outer electron. In list **file_en_454_rest**, 
+    included in bound-free, i.e. resonances due to n=2 core configurations coupled with an outer electron. In list *file_en_454_rest*, 
     the first file has to be energy file, followed by the transition files. These transition files have to share the same energy file,
     otherwise when reading different transition files, levels will be messed up.
   - *create_f_file.py*: creates f-file needed in opacity calculation. The same variable settings as in file *create_e_file.py*.
