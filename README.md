@@ -59,6 +59,9 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
   requirement. Thus we abandon it in general.
   - **add_awk.sh**: after **fac.InterpCross()** generates the data for all transitions, it reads the data and sums it up in unit of Mb.
 --------
+- **run_JJ_Pi.sh**: after the bound levels are extracted in directory **bound_levels_0/**, we are ready to generate the photoionization
+cross section for each level in each symmetry category **2J_π**.
+--------
 - **level_identification_3/**: 
   - *plot_n4_background_1.py*: plot the photoionization cross section of RDW and BPRM and see how well they match with each other. Correction is needed if they don't agree well by switching to other reasonable levels.
 --------
