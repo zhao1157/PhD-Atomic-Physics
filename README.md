@@ -33,8 +33,19 @@ In this folder, I show the procedure of doing the level-matching and top up. To 
 --------
 - **create_mesh_1/**: create energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between
   adjacent thresholds. 
-  - **extract_trans_awk_1.sh**: collect the transition information for the levels of interest. Usually we need to create a symlink that
-  points to a file which contains the levels we are interested in, e.g. `ln -s ../bound_levels_0/0_0_neg bound_levels_0`.
+  - **extract_trans_awk_1.sh**: collect the transition information for the levels of interest, i.e. the header line for each transition.
+  Usually we need to create a symlink that points to a file which contains the levels we are interested in, e.g. 
+  `ln -s ../bound_levels_0/0_0_neg bound_levels_0` (see script **run_JJ_Pi.sh** in **match/** directory).
+  - **collect_thresh_awk_2.sh**: collect the various thresholds for each level, and output the level index and its thresholds in one 
+  single line.
+  - **order_thresh_awk_3.sh**: sort the thresholds for each level in ascending order, and append each level with an energy that is 
+  105 Ry (or another range of your interest) more than the lowest threshold, and remove other thresholds that are the same as 
+  one threshold.
+  - **add_mini_diff_awk_4.sh**: append the smallest difference between adjacent thresholds at the end of each line for each level. This
+  value is useful when creating energy mesh and 10th of it is used as the increment. So in this way we try to delineat the edges of 
+  various transitions.
+  - **creat_fine_mesh_5.py**: create an energy mesh for each level, with 10 points in any adjacent shresholds, and 20 points between the 
+  last threshold and the maximal energy point.
 --------
 - **generate_PI_2/**: after mesh being generated, the scripts in this folder calculate the photoionization cross section.
 --------
