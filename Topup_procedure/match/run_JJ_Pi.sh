@@ -2,7 +2,7 @@
 
 for JJ in $(seq 0 2 16)
 do
-        for Pi in 0
+        for Pi in 0 1
         do
                 cd create_mesh_1
                 rm bound_levels_0
