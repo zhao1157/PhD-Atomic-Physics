@@ -98,14 +98,31 @@ the levels, we are ready to print out the level information and find out the con
 In this folder, I will extend the BPRM data to higher energy region using RDW method, add the contribution from other core configurations, and include the other bound state levels that are not included in BPRM calculation. To extend the photoionization cross section tail, we simply add the RDW data at the end of BPRM data for each level. The energy mesh used is divided into two parts. One is the mesh used in BPRM claculation from the lowest ionization threshold to the last point. The other is from the last point in BPRM claculation to 500 Ry of photoelectron energy, and it's created such that 10 points are assigned uniformly between adjacent thresholds of other core configurations that I'm going to describe next. The contribution from other core configurations are added using the mesh that has already considered the thresholds of these core configurations. Lastly, the other bound state levles are included, considering the contribution from all the core configurations used in BPRM and others as described above.
 
 #### 2.1. extract_bprm_tail_n4_0/
-This script is used to extract the threshold and last point in bprm data for tail-processing.
+- *extract_bprm_0.py*: used to extract the threshold and last point for each level in bprm data for tail-processing. The threshold is used
+to determine the highest energy point, i.e. 500 Ry more than the threshold. The last point is used to compare with various thresholds
+in order to determine the thresholds that are beyond this point.
 
 #### 2.2. tail_other_targets_1/0-16/ 
 - **bound_levels_0/**: only consider the transitions to other core configurations as we want to extract the thresholds due to them, so
   that the energy mesh can be created appropriately.
-    - **extract_bound_levels_0.py**: ***update***
+    - *extract_bound_levels_0.py*: the same as the one in **match/bound_levels_0/**
 --------
-- **create_mesh_1/**: the filenames of these scripts are the same as before, but the content can be drastically different. For each level, the tail is created so that any adjacent thresholds have 10 points between them. 
+- **create_mesh_1/**: the filenames of these scripts are the same as those in **match/create_mesh_1/**, but the content can be 
+drastically different. 
+  - *extract_trans_awk_1.sh*: the same as the one in **match/create_mesh_1/**
+  - *collect_thresh_awk_2.sh*: the same as the one in **match/create_mesh_1/**
+  - *order_thresh_awk_3.sh*: compared with the one in **match/create_mesh_1/**, line 19 is commented out in the current version, because
+  the lowest threshold for each level is stored in **extract_bprm_tail_n4_0/**.
+  - *add_mini_diff_awk_4.sh*: the same as the one in **match/create_mesh_1/**
+  - *creat_fine_mesh_5.py*: due to the correction in matching step, we first reorder the levels obtained from *add_mini_diff_awk_4.sh*,
+  and then determine how to create the energy mesh. If all the thresholds are within the last point of BPRM calculation, then we simply
+  assign 400 points between the last point and the point which is 500 Ry above the threshold obtained in **extract_bprm_tail_n4_0/**.
+  Otherwise, we find the threshold that just starts to become larger than the last point, and assign 10 points between the last point and
+  that threshold, and also 10 points between the following thresholds, and 300 points between the last threshold and the point which is
+  500 Ry above the threshold obtained in extract_bprm_tail_n4_0/.
+  - *test_same.awk*: the same as the one in **match/create_mesh_1/**
+  - *run.sh*: it is slightly different from the one in **match/create_mesh_1/**, in that *creat_fine_mesh_5.py* needs to read some input
+  parameters, i.e. *2J* and *π*.
 --------
 - **generate_PI_2/**: only the transitions due to the core configuraitons included in BPRM calculation are needed. 
 --------
