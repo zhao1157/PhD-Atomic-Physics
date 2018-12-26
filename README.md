@@ -154,9 +154,10 @@ the same.
     - *add_awk.sh*: the same as the one in **match/generate_PI_2/**
   - **combine_other_targets_3/**: 
     - *combine_other_targets.py*: combine the tailed-BPRM data with those in **generate_PI_2/**.
+    - *cat.sh*: simply concatenate the these data into one file
 
 #### 2.3. other_levels_2/
-I'm going to collect all the other bound levels and calculate the photoionization cross section due to the core configurations included in BPRM calculation and the above top up calculation.
+We are going to collect all the other bound levels and calculate the photoionization cross section due to the core configurations included in BPRM calculation and the above top up calculation.
 - **bound_levels_0/**: extract the bound levels that contribute to the photoionization cross section, in terms of **2J** and **π**. 
 --------
 - **create_mesh_1/**: create energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between adjacent thresholds. 
