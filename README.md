@@ -5,8 +5,8 @@ If you are interested in doing the top-up calculation for other ions, feel free 
 
 ## I. BPRM/
 - Input files for BPRM:
-  - *couple_core_e_0.sh*: in stg2, we need to couple the quantumn numbers **S** and **L** of the target states with those of the outer electron, so this script does this job.
-  - *recupd_core_2j_p_0.sh*: in recupd, it can be really tedious to manually input the **2J** and **π** values of the target, so this script collects this information and outputs it appropriately.
+  - *couple_core_e_0.sh*: in stg2, we need to couple the quantumn numbers *S* and *L* of the target states with those of the outer electron, so this script does this job.
+  - *recupd_core_2j_p_0.sh*: in recupd, it can be really tedious to manually input the *2J* and *π* values of the target, so this script collects this information and outputs it appropriately.
 
 -------------------  
 
@@ -124,9 +124,17 @@ drastically different.
   - *run.sh*: it is slightly different from the one in **match/create_mesh_1/**, in that *creat_fine_mesh_5.py* needs to read some input
   parameters, i.e. *2J* and *π*.
 --------
-- **generate_PI_2/**: only the transitions due to the core configuraitons included in BPRM calculation are needed. 
+- **generate_PI_2/**: since we are extending the tail, which is due to the core configuraitons that are included BPRM calculation, 
+only these core configuraitons are considered. 
+  - *fe18_n3.py*: the same as the one in **match/generate_PI_2/**
+  - *add_awk.sh*: the same as the one in **match/generate_PI_2/**
 --------
-- **combine_tail_3/**: attach the scaled RDW tail to BPRM and outputs the ratio used for each level.
+- **combine_tail_3/**: attach the RDW tail to BPRM.
+  - *combine_tail.py*: since the levels have already been corrected, we are ready to just concatenate the tail to BPRM data. Note, in this 
+  script, we can get the ratio of BPRM/RDW at the last point, which can give us a rough idea of how these two calculation compare with 
+  each other. Through this ratio, we can find the levels that are doing well and not well using script in **match/ratio_analysis_4/**. To
+  activate this option, uncomment out line 34, and comment out line 35.
+  - *cat.sh*: simply to concatenate 2J_π_ratio files into one file ratio, which is needed in **match/ratio_analysis_4/**.
 --------
 - **other_targets_4/**: I'm going to add the contribution from other core configurations to the tailed-BPRM data. Before proceeding, I need to create a symlink to '../bound_levels_0/'.
   - **create_mesh_1/**: extract the energy mesh for each level.
