@@ -1,4 +1,4 @@
-# This script is to extract the ionization thresholds of the transitions at the start and end 
+# This script is to extract the PEC_L_Edge main transitions
 import os
 
 #set the starting energy of photon to search from
