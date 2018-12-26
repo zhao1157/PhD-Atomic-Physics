@@ -2,10 +2,10 @@ from pfac import fac
 import sys
 import os
 
-outfile_lev_b = '../outfile/fe18b.en'
+outfile_lev_b = 'outfile/fe18b.en'
 outfile_lev_a = outfile_lev_b[:-4]+'a.en'
 
-outfile_rr_b = '../outfile/fe18b.rr'
+outfile_rr_b = 'outfile/fe18b.rr'
 outfile_rr_a = outfile_rr_b[:-4]+'a.rr'
 
 fac.MemENTable(outfile_lev_b)
