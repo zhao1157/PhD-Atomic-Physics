@@ -138,6 +138,7 @@ only these core configuraitons are considered.
 --------
 - **other_targets_4/**: I'm going to add the contribution from other core configurations to the tailed-BPRM data. Before proceeding, I need to create a symlink to '../bound_levels_0/'.
   - **create_mesh_1/**: extract the energy mesh for each level.
+    - **sd**
   - **generate_PI_2/**: calculate the photoionization cross section.
   - **combine_other_targets_3/**: combine the tailed-BPRM data with those in **generate_PI_2/**.
 
