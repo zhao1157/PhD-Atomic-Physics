@@ -157,12 +157,37 @@ the same.
     - *cat.sh*: simply concatenate the these data into one file
 
 #### 2.3. other_levels_2/
-We are going to collect all the other bound levels and calculate the photoionization cross section due to the core configurations included in BPRM calculation and the above top up calculation.
-- **bound_levels_0/**: extract the bound levels that contribute to the photoionization cross section, in terms of **2J** and **π**. 
+We are going to collect all the other bound levels and calculate the photoionization cross section due to all the core configurations included in BPRM calculation and the above top up calculation.
+- **bound_levels_0/**: 
+  - *extract_bound_levels_0.py*: the same as the one in **match/bound_levels_0/**
+  - *extract_other_levels_1.py*: extract all the other bound levels that are not included in BPRM calculation. Note the correction in 
+  matching is needed, and *sym_level* is a dictionary containing 2J_π:number_of_levels_in_BPRM.
+  - *create_e_file.py*: create the e-file needed in opacity calculation for these bound levels. *ind_base* is the number of bound levels
+  included in BPRM calculation, so the unincluded bound levels are indexed based on that number.
 --------
-- **create_mesh_1/**: create energy mesh for each bound state level. To delineate the edges, 10 points are uniformly assigned between adjacent thresholds. 
+- **create_mesh_1/**: 
+  - *extract_trans_awk_1.sh*: the same as the one in **match/create_mesh_1/**
+  - *collect_thresh_awk_2.sh*: the same as the one in **match/create_mesh_1/**
+  - *order_thresh_awk_3.sh*: the same as the one in **match/create_mesh_1/**
+  - *add_mini_diff_awk_4.sh*: the same as the one in **match/create_mesh_1/**
+  - *creat_fine_mesh_5.py*: compared with the one in **match/create_mesh_1/**, it differs in the way of assigning the points between 
+  adjacent thresholds. If the difference is within 10 ev, then 10 points, othewise 20.
+  - *split.sh*: split the energy mesh into a few files, each of which contains 1000 levels. This might be helpful when there are so many 
+  levels and the number of transitions is huge, so we can split the calculation in a few chunks and run them simultaneously. 1000 can be
+  changed to other values.
+  - *test_same.awk*: the same as the one in **match/create_mesh_1/**
+  - *run.sh*: run the above scripts
 --------
-- **generate_PI_2/**: after mesh being generated, calculate the photoionization cross section.
+- **generate_PI_2/**: 
+  - *fe18_n4.py*: it is essentially the same as the one in **match/generate_PI_2/**, but it differs a bit in that it reads an input and 
+  the file path changes a bit.
+  - *add_awk.sh*:  the same as the one in **match/generate_PI_2/**.
+  - *create_run_0.sh*: creates PBS jobs for computation of differents chunks. 1000 should be changed if it is changed in 
+  *create_mesh_1/split.sh*.
+  - *check_zero_1.py*: remove the first entry that has photoionization cross section of 0.
+  - *combine_head_data_2.py*: it needs a file called *head* that contains the same energy of the core configurations as in BPRM 
+  calculation, and a file containing the level information, i.e. `ln -s ../bound_levels_0/neg levels`.
+  
 
 ### 3. fe17_fe18_matched_levels/
 In this folder, the photoionization cross section of the matched levels are shown. The oscillation at the right end of BPRM is removed and not counted in the opacity calculation.
