@@ -136,11 +136,24 @@ only these core configuraitons are considered.
   activate this option, uncomment out line 34, and comment out line 35.
   - *cat.sh*: simply to concatenate 2J_π_ratio files into one file ratio, which is needed in **match/ratio_analysis_4/**.
 --------
-- **other_targets_4/**: I'm going to add the contribution from other core configurations to the tailed-BPRM data. Before proceeding, I need to create a symlink to '../bound_levels_0/'.
+- **other_targets_4/**: We are going to add the contribution from other core configurations to the tailed-BPRM data. Before proceeding, 
+we need to create a symlink in this directory to '../bound_levels_0/', i.e. `ln -s ../bound_levels_0/`, as the bound level information is
+the same.
   - **create_mesh_1/**: extract the energy mesh for each level.
-    - **sd**
+    - *extract_trans_awk_1.sh*: the same as the one in **match/create_mesh_1/**
+    - *collect_thresh_awk_2.sh*: the same as the one in **match/create_mesh_1/**
+    - *order_thresh_awk_3.sh*: comment out line 19, as the mesh has already been created, now we just need to find the lowest threshold,
+    and extract the energy mesh
+    - *extract_mesh_4.py*: we take note of the energy index at which the contribution from other core configurations starts to kick
+    in in each level and the rest of the energy points are the mesh we need. And there are cases where there are no transitions to these
+    core configurations, so we denote it as *skip*. These information will be needed when adding the extra contribution to the tailed-BPRM
+    data.
+    - *run.sh*: run the first three scripts
   - **generate_PI_2/**: calculate the photoionization cross section.
-  - **combine_other_targets_3/**: combine the tailed-BPRM data with those in **generate_PI_2/**.
+    - *fe18_n3.py*:  the same as the one in **match/generate_PI_2/**
+    - *add_awk.sh*: the same as the one in **match/generate_PI_2/**
+  - **combine_other_targets_3/**: 
+    - *combine_other_targets.py*: combine the tailed-BPRM data with those in **generate_PI_2/**.
 
 #### 2.3. other_levels_2/
 I'm going to collect all the other bound levels and calculate the photoionization cross section due to the core configurations included in BPRM calculation and the above top up calculation.
