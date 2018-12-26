@@ -21,7 +21,7 @@ os.popen('if [ -d '+file_n_start_end+' ]; then rm -rf '+file_n_start_end+';fi; m
 
 collect_n_start_end = {}
 
-ind = 0
+ind = 0 #line number, which is the same as the name of the photoionization cross section file in generate_PI_2/xsectn
 for lev_n in bound_levels:
 	ind += 1
 	lev, n_elec = lev_n.split('_')
