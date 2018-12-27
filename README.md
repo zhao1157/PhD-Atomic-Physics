@@ -200,7 +200,11 @@ We are going to collect all the other bound levels and calculate the photoioniza
   - *extract_jump_start_end_3.py*: extract the photoionization cross section near the "last" threhold and 500 Ry.
 
 ### 3. fe17_fe18_matched_levels/
-In this folder, the photoionization cross section of the matched levels are shown. The oscillation at the right end of BPRM is removed and not counted in the opacity calculation.
+In this folder, the photoionization cross section of the matched levels for both FeXVII and FeXVIII are shown. The oscillation at the
+right end of BPRM is removed and not included in the opacity calculation.
+
+### 4. fe17_fe18_full_data/
+In this folder, the FULL photoionization cross section of the bound levels of FeXVII and FeXVIII are shown in log-log scale.
 
 ## III. paper/
 In this folder, it contains the scripts that I used to create the plots in the relevant paper (link to be updated).
