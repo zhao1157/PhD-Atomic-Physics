@@ -197,7 +197,7 @@ We are going to collect all the other bound levels and calculate the photoioniza
 - **extract_jump_4/**: to analysis the PEC_L_Edge transitions
   - *extract_jump_start_end_1.py*: extract the PEC_L_Edge main transitions for each level. The output file is named as level_exp, e.g.
   100_+01, in which written are the transitions from level 100 with a magnitude of 10^+01 at the first default energy point.
-  - *extract_jump_start_end_2.py*: print out the level index, the first and last thresholds for all levels, which are grounped as the 
+  - *extract_jump_start_end_2.py*: print out the level index, the first and last thresholds for all levels, which are grouped as the 
   principle quantum number of the outer electron.
   - *extract_jump_start_end_3.py*: extract the photoionization cross section near the "last" threhold and 500 Ry.
 
