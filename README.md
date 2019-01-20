@@ -7,6 +7,8 @@ If you are interested in doing the top-up calculation for other ions, feel free 
 
 ## I. BPRM/
 - Input files for BPRM:
+  - *core_lsp_0.py*: in stg2, there might be tens of or even a few hundred target terms needed to be collected from superstructure
+    output, so it can be tedious to type them in the input file. Thus this simple script just does this job.
   - *couple_core_e_0.sh*: in stg2, we need to couple the quantumn numbers *S* and *L* of the target states with those of the outer electron, so this script does this job.
   - *recupd_core_2j_p_0.sh*: in recupd, it can be really tedious to manually input the *2J* and *π* values of the target, so this script collects this information and outputs it appropriately.
 
