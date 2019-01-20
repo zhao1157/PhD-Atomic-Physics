@@ -1,3 +1,4 @@
+#This script is to collect the targets information from superstructure output
 file_name = 'fe19_ss.en'
 
 keys = [str(i) for i in range(1, 13)] #configuration index as in superstructure
