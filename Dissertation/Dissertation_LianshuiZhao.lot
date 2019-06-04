@@ -1,0 +1,20 @@
+ \vskip 0.55in \textbf {Table}\hfill \textbf {Page} \vskip 0.25em \rm 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces The parameters $\lambda _{n\ell }$ used in constructing the radial functions of the target for Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xvii}} and Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xviii}} calculations.\relax }}{32}{table.caption.14}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Listed are the correlation configurations included in STG2 for both Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xvii}} and Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xviii}} BPRM calculations. Note: $1s$ is always full, so it is omitted.\relax }}{32}{table.caption.15}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Selected packed levels of Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xvii}} ($J = 4, \pi = o$) and Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xviii}} ($J=5/2, \pi =o$) (Note: the energy is $z$-scaled, and in unit of $10^{-2} Ry$)\relax }}{55}{table.caption.27}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xviii}}: In symmetry $J = 7/2,\nobreakspace {}\pi = o$ of Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xviii}}, around energy $-3.5$, BPRM finds 3 levels, while RDW gives 2 levels. Note: the energy is $z$-scaled, and in unit of $10^{-2} Ry$.\relax }}{59}{table.caption.30}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Selected levels of Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xvii}} ($J = 3, \pi = e$) and Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xviii}} ($J=1/2, \pi =e$) to be matched (Note: the energy is $z$-scaled, and in unit of $10^{-2} Ry$)\relax }}{67}{table.caption.32}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Listed are some of the other core configurations which contribute most of the photoionization cross section for the four levles shown in figures \ref {fig_fe17_tail_other} and \ref {fig_fe18_tail_other}.\relax }}{74}{table.caption.42}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Listed are four closely lying levels 42 - 45 with the same symmetry ($J = 7/2,\nobreakspace {}\pi = o$) for Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xvii}}, among which level 44 is the one shown in the bottom panel of figure \ref {fig_fe18_tail_other}. Note: the energy is $z$-scaled ($z=17$ for Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xvii}}), and in unit of $10^{-2} Ry$.\relax }}{74}{table.caption.45}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Listed are four of the bound levels found in the topup calculation and their photoionization cross section is shown in figure \ref {figure_other_levels}. Note: the energy is $z$-scaled ($z=17$ for Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xvii}} and 18 for Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xviii}}), and in unit of $10^{-3} Ry$.\relax }}{80}{table.caption.48}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Listed are the main transitions that cause the jump of the background of photoionization cross section as shown in figures \ref {fe17_bprm_fac}, \ref {fe18_bprm_fac} and \ref {figure_fe17_bound_mix}.\relax }}{80}{table.caption.50}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Listed are the main transitions that cause the jump for levels with $n=5,\nobreakspace {}6,\nobreakspace {}10$, as shown in figure \ref {figure_other_levels}.\relax }}{81}{table.caption.51}
+\contentsline {table}{\numberline {5.9}{\ignorespaces Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xvii}}: Bound-bound transitions included in the top up calculation. Note: $\ell $, $\ell '$ can be any subshell in each corresponding shell.\relax }}{82}{table.caption.52}
+\contentsline {table}{\numberline {5.10}{\ignorespaces Fe$\tmspace +\thickmuskip {.2777em}${\scshape {xviii}}: Bound-bound transitions included in the top up calculation. Note: $\ell $, $\ell '$ can be any subshell in each corresponding shell.\relax }}{83}{table.caption.53}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

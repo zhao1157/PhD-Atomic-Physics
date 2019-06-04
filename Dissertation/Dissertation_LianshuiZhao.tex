@@ -1,0 +1,364 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% template.tex - version 0.9.1.1 (5/26/2011)
+%
+% This is a template file for the osudiss-2 class. See
+% osudiss-2.pdf for documentation, and the GS material 
+% for the requirements.
+%
+% Copy the following osudiss-2 files your latex path (or just the folder containing this file):
+% osudiss-2.cls (v0.9.1)
+% sa-draftwater.sty
+%
+% Then, to compile this file:
+% latex template
+% bibtex template
+% latex template
+% latex template
+%
+% (You can also use pdflatex if you prefer.)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt, double, phd]{osudiss-2} 
+% The `11pt' option is unnecessary since it is the default
+
+% `onehalf' sets the line spacing to one-and-a-half spacing instead of
+% double spacing.
+
+% The `phd' option is unnecessary since it is the default
+
+% Remove `draft' option for final draft
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%
+% Load your favorite packages here
+\usepackage{graphicx} % for importing images in figures - you definitely want this!
+\usepackage{lipsum} % for fake latin text---you probably don't want this
+\usepackage{verbatimbox}
+
+% For instance... see osudiss-2.pdf for some suggestions, if you don't
+% have a clue
+\usepackage{bm} % for bold math---useful
+\usepackage{booktabs} % for more professional tables
+\usepackage[titletoc]{appendix}
+
+%hyperref packages and options
+\usepackage{bookmark} % helps booksmarks look better in PDF
+%hypersetup option 'breaklinks' is reguired for line wrapping in the table of contents during latex compilation, and can be removed if you use pdflatex
+%\hypersetup{colorlinks=true,linkcolor=blue, breaklinks} %internal links in blue, citations in green
+\hypersetup{colorlinks=true,linkcolor=black, citecolor=black, urlcolor=black, breaklinks} %all links in black
+\usepackage[all]{hypcap}
+
+%Use of natbib is STRONGLY recommended to sort and compress your references within each citation
+%With these options, natbib will convert i.e. [5,3,9,4] to [3-5, 9]
+\usepackage[sort&compress]{natbib}
+
+%required to have latex automatically generate subfigures (i.e. (a), (b) etc)
+\usepackage{subfig}
+\usepackage[export]{adjustbox}
+\setcounter{lofdepth}{2}
+\PassOptionsToPackage{obeyspaces}{url}
+%\usepackage{hyperref}% http://ctan.org/pkg/hyperref
+
+%load glossaries packages
+\usepackage[acronym, section=chapter]{glossaries}
+%\usepackage[xindy,acronym, section=chapter]{glossaries} %- recommended if supported by your OS
+\makeglossaries %required to actually make a glossary
+\include{acronyms} %load list of acronyms contained in acronyms.tex
+
+%The following commands can be used to help deal with "overfull hbox" issues
+%See, for example, http://www.tex.ac.uk/cgi-bin/texfaq2html?label=overfull for details
+%\pretolerance 1000
+\setlength{\emergencystretch}{3em}
+%\tolerance 1000
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Custom Commands/Environments %%%%%%%%%%%%%%%%%%%%%%%%%
+% Put your favorite custom commands here
+\newcommand{\fish}{\alpha} % some of my students call it the "fish" symbol
+
+%Print list of abbreviations - use same font as List of Figures and List of Tables for the title, and same formatting in the table of contents.
+% Argument #1 - title for list of abbreviations (i.e. List of Abbreviations)
+
+\newcommand\PrintListofAbbreviations[1]{
+	\phantomsection
+	\addcontentsline{toc}{front}{\typesetColumnHeading{#1}}
+	\printglossary[type=\acronymtype,title={\protect {\typesetLevelTwo{#1}}}]
+}
+
+
+\newenvironment{chapabstract}{%
+	\begin{center}%
+		\bfseries Abstract
+\end{center}}%
+
+% Below is an example of customizing the style of headings in your
+% dissertation. See osudiss-2.pdf for more information.
+%
+% For example, if you simply must have uppercase titles:
+%\renewcommand\typesetLevelOne[1]{{\Large\textbf{\MakeUppercase{#1}}\par}}
+%\renewcommand\typesetLevelTwo[1]{{\Large\textbf{\MakeUppercase{#1}}}}
+% Note the \par for \typesetLevelOne
+%
+% If you want the title to be bold and |\Large| instead of |\Huge|:
+%\renewcommand\titleFont{\normalfont\Large\bfseries}
+
+% Add words that TeX may not know how to hyphenate below. This can
+% help prevent overfull hboxes. For example,
+\hyphenation{eigen-state space-time} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Document Metadata %%%%%%%%%%%%%%%%%%%%%%%%%
+\title{High-Accuracy Atomic Calculations for Plasma Opacities}
+\degree{Doctor of Philosophy} % Default value
+\author{Lianshui Zhao}
+\advisorname{Chris Orban}
+\member{Anil Pradhan, Co-Advisor}
+\member{Amy Connolly}
+\member{Enam Chowdhury}
+\authordegrees{M.Sc.}
+\graduationyear{2019}
+\unit{Graduate Program in Physics} 
+
+\newcommand\ion[2]{#1$\;${\scshape{#2}}}
+\usepackage{multirow}
+%replace the "Figure 1.:" with "Figure 1. figure_caption". The same as for tables.
+\DeclareCaptionLabelFormat{mylabel}{#1 #2.\hspace{1ex}}
+\captionsetup[figure]{labelformat=mylabel,labelsep=none,name=Figure}
+\captionsetup[table]{labelformat=mylabel,labelsep=none,name=Table}
+
+%\usepackage{subcaption}
+%fix the figure format 1a to 1(a)
+%\usepackage[labelformat=simple]{subcaption}
+%\usepackage{subfigure}
+%\renewcommand\thesubfigure{(\alph{subfigure})}
+\graphicspath{{chap_6/}{chap_5/}{chap_4/}{chap_3/}{chap_2/}{chap_1/}{app_2/}}
+\robustify{\subref} %replace \protect\subfig{}
+\usepackage{amsfonts} %mathbb
+
+\setcounter{secnumdepth}{4} %section 1.1.1.1
+\setcounter{tocdepth}{4} %create headings 1.1.1.1
+
+\renewcommand{\arraystretch}{1.3} %increase the spacing betwen rows in tables.
+\usepackage{lscape} 
+\usepackage{amsmath}
+%-----------------------------------------------------%
+%%%                    BODY 		     		%%%
+%-----------------------------------------------------%
+%\includeonly{chap_6/topup_bprm_rdw} %useful when editing large document by only processing the the chapters you are interested in.
+%\includeonly{app_1/app_1}
+%\includeonly{chap_5/pec_l_edge}
+%\includeonly{chap_3/bprm_rdw_theory}
+%\includeonly{app_2/bprm_code}
+%\includeonly{chap_4/bprm_fe17_fe18}
+%\includeonly{chap_2/Introduction}
+%\includeonly{abstract/abstract}
+%\includeonly{acknowledge/acknowledgement}
+%\includeonly{vita/vita}
+\usepackage{xcolor} %colorbox{gray!20}
+
+%modified version of cases by placing the brace on the right.
+\newenvironment{rcases}
+{\left.\begin{aligned}}
+	{\end{aligned}\right\rbrace}
+
+\begin{document}
+\frontmatter 
+
+\include{abstract/abstract}
+
+\dedication{Dedicated to my family and Shaoyun Dong.\\
+						 \vspace{10 mm}
+						\includegraphics[width=.5\textwidth]{shaoyun_dong}}
+					
+\include{acknowledge/acknowledgement}
+\include{vita/vita}
+
+\tableofcontents
+ 
+% list of figures (comment out if you don't have any figures)
+\clearpage %remove if you don't want a page break before list of figures
+\listoffigures 
+
+% list of tables (comment out if you don't have any tables)
+\clearpage  %remove if you don't want a page break before list of tables
+\listoftables 
+
+
+\mainmatter
+\include{chap_2/Introduction}
+\include{chap_3/bprm_rdw_theory}
+\include{chap_4/bprm_fe17_fe18}
+\include{chap_5/pec_l_edge}
+\include{chap_6/topup_bprm_rdw}
+
+\begin{appendices}
+	\include{app_2/bprm_code}
+	\include{app_1/app_1}
+\end{appendices}	
+\backmatter	
+
+%\bibliography{references} %uncomment this when using separated bibliography file.
+%\bibliographystyle{unsrt}  %uncomment this for numbering of references.
+%include the bibliography in the main .tex file to avoid the failure of citing authors' names.
+\begin {thebibliography} {}
+%============== A
+\bibitem[Ahmad et al.(2002)]{neutrino_sno} Ahmad, Q.R., Allen, R.C. et al. 2002, Phys. Rev. Lett., 89, 011301
+\bibitem[Antia and Chitre(1997)]{solar_neutrino_1} Antia, H.M., and Chitre, S.M. 1997, Mon. Not. R. Astron. Soc., 289, L1
+\bibitem[Antia and Basu(2005)]{ssm_op05_2} Antia, H.M., and Basu, S. 2005, Astrophys. J., 620, L129
+\bibitem[Asplund et al.(1999)]{3d_nonlte_2} Asplund, M., Nordlund, \AA., and Trampedach, R. 1999, ASP Conf. Ser., 173, 221
+\bibitem[Asplund et al.(2000)]{3d_nonlte_1} Asplund, M., Nordlund, \AA., and Trampedach, R., et al. 1999, Astron. Astrophys., 359, 729
+\bibitem[Asplund et al.(2004)]{ags_05_3} Asplund, M., Grevesse, N., Sauval, A.J., et al. 2004, Astron. Astrophys. 417, 751
+\bibitem[Asplund et al.(2005)]{ags_05_4} Asplund, M., Grevesse, N., Sauval, A.J. 2005, ASPCS 336, 25
+\bibitem[Asplund et al.(2009)]{agss09} Asplund, M., Grevesse, N., et al. 2009, Annu. Rev. Astron. Astrophys. 47, 481
+
+%============= B
+\bibitem [Badnell et al.(2005)] {config_2005} Badnell, N.R., Bautista, M. A., Butler, K., et al. 2005, MNRAS, 360, 458
+
+\bibitem [Badnell \& Seaton(2003)] {config_2003} Badnell, N. R., \& Seaton, M. J. 2003, J. Phys. B -- At. Mol. Opt. Phys., 36, 4367
+
+\bibitem[Bahcall et al.(1982)]{ssm_1} Bahcall, J.N., Huebner, W.F., Lubow, S.H., Parkerk, P.D., and Ulrich, R.K. 1982, Rev. Mod. Phys., 54, 767
+
+\bibitem[Bahcall et al.(1988)]{ssm_2} Bahcall, J.N., and Ulrich, R.K. 1988, Rev. Mod. Phys., 60, 297
+
+\bibitem[Bahcall et al.(1995)]{ssm_3} Bahcall, J.N., and Pinsonneault, M.H. 1995, Rev. Mod. Phys., 67, 781
+
+\bibitem[Bahcall and Pinsonneault(1997)]{solar_neutrino_2} Bahcall, J.N., and Pinsonneault. M.H. 1997, Phy. Rev. Lett. 78, 171
+
+\bibitem[Badcall(2003)]{ssm_history} Badcall, J.N. 2003, Nuc. Phys. B Proc. Suppl., 118, 77
+
+\bibitem[Bahcall et al.(2004)]{convec_1} Bahcall, J.N., Serenelli, A.M., and Pinsonneault, M. 2004, Astrophys. J., 614, 464
+
+\bibitem[Bahcall and Pinsonneault(2004)]{convec_2} Bahcall, J.N., and Pinsonneault, M.H. 2004,  Phys. Rev. Lett., 92, 121301
+
+\bibitem[Bahcall et al.(2005)]{ssm_98_05} Bahcall, J.N., Basu, S., Pinsonneault, M., et al. 2005, Astrophys. J., 618, 1049
+
+\bibitem[Bahcall et al.(2005)]{ssm_op05_1} Bahcall, J.N., Serenelli, A.M., and Basu, S. 2005, Astrophys. J., 621, L85
+
+\bibitem[Bailey et al.(2007)]{z_150ev_1} Bailey, J.E., Rochau, G.A., Iglesias, C.A., et al. 2007, Phys. Rev. Lett., 99, 265002
+
+\bibitem[Bailey et al.(2008)]{z_150ev_2} Bailey, J.E., Rochau, G.A., Mancini, R.C., et al. 2008, Rev. Sci. Instrum. 79, 113104
+
+\bibitem[Bailey et al.(2009)]{opacity_exp_analy} Bailey, J.E., Rochau, G.A., et al. 2009, Phys. Plasmas, 16, 058101
+
+\bibitem [Bailey et al.(2015)] {sandia_2015} Bailey, J., Nagayama, T., Loisel, G. P., et al. 2015, Nature, 517, 56
+
+\bibitem[Baluja et al.(1986)]{pseudo_reso_1} Baluja, K.L., Hibbert, A., and Mohan, M. 1986, J. Phys. B -- At. Mol. Opt. Phys., 19, 3613
+
+\bibitem[Bar-Shalom et al.(2001)]{hullac} Bar-Shalom, A., Klapisch, M., and Oreg, J. 2001, J. Quant. Spectrosc. Radiat. Transfer, 61, 169
+
+\bibitem[Basu and Antia(1997)]{helio_sound_3} Basu, S., Antia, H.M. 1997, Mon. Not. R. Astron. Soc. 287, 189
+
+\bibitem[Basu and Antia(2004)]{helio_05} Basu, S., and Antia, H.M. 2004, Astrophys. J., 606, L85
+
+\bibitem[Basu and Antia(2008)]{helio_solar_rev} Basu, S., and Antia, H.M. 2008, Phys. Rep., 457, 217
+
+\bibitem [Blancard et al.(2016)] {comment_2016} Blancard, C., Colgan, J., Coss\'e, Ph., et al. 2016, Phys. Rev. Lett., 117, 249501
+
+\bibitem[Berrington \& Seaton(1985)]{berrington_seaton_1985} Berrington, K. A., Seaton, M. J. 1985, J. Phys. B -- At. Mol. Opt. Phys., 18, 2587
+
+\bibitem[Berrington et al.(1987)]{opcd_2} Berrington, K. A., Burke, P. G., Butler, K., et al. 1987, J. Phys. B -- At. Mol. Opt. Phys., 20, 6379
+
+\bibitem[Berrington \& Eissner(1987)]{comp_impact_rm} Berrington, K.A., Eissner, W. 1987, Comp. Phys. Commun., 44, 105
+
+\bibitem[Berrington et al.(1988)]{pseudo_reso_2} Berrington, K.A., Burke, P.G., Hibbert, M., and Baluja, K.L. 1988, J. Phys. B -- At. Mol. Opt. Phys.,  21, 339
+
+\bibitem[Berrington et al.(1995)]{rm_3} Berrington, K.A., Eissner, W., Norrington, H. 1995, Comp. Phys. Commun., 92, 290
+
+\bibitem[Burke, Berrington(1993)]{book_rm_approach} Burke, P.G., and Berrington, K.A. (1993). Atomic and molecular processes: an $R$-matrix approach. Bristol (United Kingdom): Institute of Physics Publishing Ltd.
+\bibitem[Burke et al.(1971)]{rm_1} Burke, P.G., Hibbert, A., and Robb, W.D. 1971, J. Phys. B -- At. Mol. Opt. Phys., 4, 153
+
+\bibitem[Burke, Seaton(1971)]{book_int_diff} Burke, P.G., Seaton, M.J. 1971, Methods in Computational Physics, 10, 1
+
+%============== C
+\bibitem[Chen(1996)]{dw_guoxin} Chen, G.X. 1996, Phys. Rev. A, 53, 3227
+\bibitem[Chen et al.(2003)]{guoxin_benchmark} Chen, G.X., Pradhan, A.K., and Eissner, W. 2003,  J. Phys. B -- At. Mol. Opt. Phys., 36, 453
+\bibitem[Christensen-Dalsgaard et al.(1985{\natexlab{a}})]{helio_sound_1} Christensen-Dalsgaard, J., Duvall, T.L., Gough, D.O., et al. 1985, Nature, 315, 378
+\bibitem[Christensen-Dalsgaard et al.(1991{\natexlab{b}})]{helio_sound_2} Christensen-Dalsgaard, Gough, D.O., and Thompson, M.J. 1991, Astrophys. J., 378, 413
+
+%============== E
+\bibitem[Eissner, Nussbaumer(1969)]{ss_1} Eissner, W., Nussbaumer, H. 1969, J. Phys. B -- At. Mol. Opt. Phys., 2, 1028
+
+\bibitem[Eissner \& Seaton(1972)]{impact_1} Eissner, W., Seaton, M.J. 1972, J. Phys. B -- At. Mol. Opt. Phys., 5, 2187
+
+\bibitem[Eissner et al.(1974)]{ss_3} Eissner, W., Jones, M., and Nussbaumer, H. 1974, Comp. Phys. Commun., 8, 270
+
+\bibitem[Eissner(1998)]{ucl_dw} Eissner, W. 1998, Comp. Phys. Commun., 114, 295
+%============== F
+\bibitem[Fernly et al.(1987)]{opcd_7} Fernly, J. A., Taylor, K. T., \& Seaton, M. J. 1987, J. Phys. B -- At. Mol. Opt. Phys., 20, 6457
+
+%============== G
+\bibitem[Grevesse and Sauval(1998, hereafter referred to as GS98)]{abundance_1998} Grevesse, N., and Sauval, A.J. 1998, Space Sci. Rev., 85, 161
+\bibitem [Gu(2008)]{gu_2008} Gu, M. F. 2008, Can. J. Phys., 86, 675
+\bibitem[Gu(2018)]{gu_email} --- 2018 (private communication)
+
+%============== H
+\bibitem[Henry(1981)]{dw_review_1} Henry R.J.W. 1981, Physics Reports, 68, 1
+\bibitem[Henry(1993)]{henry_1993} Henry, R.J.W. 1993, Rep. Prog. Phys., 56, 327
+\bibitem[Hummer et al.(1993)]{ip_1} Hummer, D.G., Berrington, K.A., Eissner, W., et al. 1993, Astron. Astrophys., 279, 298
+
+%============== i
+\bibitem[Iglesias(2015)]{enigmatic_2015} Iglesias, C. 2015, HEDP, 15, 4
+\bibitem [Iglesias \& Hansen(2017)] {more_comment_2017} Iglesias, C., \& Hansen, S. 2017, Astrophys. J., 835, 5
+
+%============= M
+\bibitem[Matzen et al.(2005)]{zfacility_1} Matzen, M.K., Sweeney, M.A., et al. 2005, Phys. Plasmas, 12, 055503
+\bibitem[Mendoza(2018)]{mendoza_2018} Mendoza, C. 2018, Atoms, 6, 28
+
+%============= N
+\bibitem[Nagayama et al.(2016)]{sandia_2016} Nagayama, T., Bailey, J.E., et al. 2016, Phys. Rev. E, 93, 023202
+
+\bibitem [Nahar et al.(2011)] {60cc_2011} Nahar, S. N., Pradhan, A. K., Chen, G. X., \& Eissner, W. 2011, Phys. Rev. A, 83, 053417
+
+\bibitem [Nahar \& Pradhan(2016{\natexlab{a}})] {99cc_2016} Nahar, S. N., \& Pradhan, A. K. 2016{\natexlab{a}}, Phys. Rev. Lett., 116, 235003
+
+\bibitem [Nahar \& Pradhan(2016{\natexlab{b}})] {comment_2016a} --- 2016{\natexlab{b}}, Phys. Rev. Lett., 117, 249502
+
+\bibitem[Nahar et al.(2019)]{rmop_2} Nahar, S. N., Zhao, L. \& Eissner, W. 2019 (to be submitted)
+
+\bibitem[Nahar \& Pradhan(2000)]{nahar_levelid_2000} Nahar, S. S., \& Pradhan, A. K. 2000, Phys. Scr., 61, 675
+
+\bibitem[Nahar et al. (2000)]{nahar_fev_2000} Nahar, S. S., Delayaye, F., Pradhan. A. K., et al. 2000, Astro. Astrophys. Suppl. Ser. 144, 141
+
+\bibitem[Nussbaumer, Storey(1978)]{ss_2} Nussbaumer, H., and Storey, P.J. 1978, Astron. Astrophys. 64, 139
+
+%============ P
+\bibitem[Pradhan \& Zhang(1997)]{ah_1997} Pradhan, A., \& Zhang, H.
+1997, J. Phys. B -- At. Mol. Opt. Phys., 30, L571
+
+\bibitem[Pradhan \& Nahar(2011)]{anil_sultana_book} Pradhan, A.K. and Nahar, S. (2011) Atomic Astrophysics and Spectroscopy. New York: Cambridge University Press
+
+\bibitem[Pradhan et al.(2019)]{rmop_5} Pradhan, A. K., Nahar, S. S., Zhao, L., et al. 2019 (to be submitted)
+
+\bibitem[Prieto et al.(2001\natexlab{a})]{ags_05_1} Prieto, C.A., and Lambert, D.L. 2001 Astrophys. J., 556, L63
+
+\bibitem[Prieto et al.(2002\natexlab{b})]{ags_05_2} Prieto, C.A., Lambert, D.L., et al. 2002 Astrophys. J., 573, L137
+%============= R
+\bibitem[Renaudin et. al.(2007)]{opas} Renaudin, P., Lecherbourg, L., etc. 2007, AIP Conf. Proc., 926, 24
+\bibitem[Robb(1970)]{cont_orbital} Robb, W.D. 1970, Comp. Phys. Commun., 1, 457
+\bibitem[Rochau et al.(2014)]{zfacility_2} Rochau, G.A., Bailey, J.E., et al. 2014, Phys. Plasmas, 21, 056308
+\bibitem[Rosseland(1924)]{rosseland} Rosseland, B. 1924, Mon. Not. R. Astron. Soc.  84, 525
+%============= S
+\bibitem[Sampson et al.(1989)]{dw_sampson} Sampson, D.H., Zhang, H.L. and Mohanty, A.K. 1989, Phys. Rev. A, 40, 604
+\bibitem[Sawey et al.(1990)]{pec_2} Sawey, P.M.J., Berrington, K.A. 1990, J. Phys. B -- At. Mol. Opt. Phys., 23, L817
+\bibitem[Scott, Burke(1980)]{rm_2} Scott, N.S., Burke, P.G. 1980, J. Phys. B -- At. Mol. Opt. Phys., 13. 4299
+\bibitem[Scott(1982)]{scott_bprm} Scott, N.S. 1982, Comput. Phys. Commun., 25, 347
+\bibitem[Seaton(1974{\natexlab{a}})]{impact_2} Seaton, M.J. 1974, J. Phys. B -- At. Mol. Opt. Phys., 7, 1817
+\bibitem[Seaton(1974{\natexlab{b}})]{impact_3} --- 1974, Comp. Phys. Commun., 6, 247
+\bibitem[Seaton(1985)]{seaton_bound_1985} Seaton, M. J. 1985, J. Phys. B -- At. Mol. Opt. Phys., 18, 2111
+\bibitem[Seaton(1987)]{opcd_1} --- 1987, J. Phys. B -- At. Mol. Opt. Phys., 20, 6363
+\bibitem[Seaton and Badnell(2004)]{op_05_1} Seaton, M.J., Badnell, N.R. 2004 Mon. Not. R. Astron., Soc., 354, 457
+\bibitem[Seaton(2005)]{op_05_2} Seaton, M.J. 2005, Seaton, M.J. 2005 Mon. Not. R. Astron., Soc., 362, L1
+\bibitem[Serenelli et al.(2009)]{ssm_05_met09} Serenelli, A.M., Basu, S., et al. 2009, Astrophys. J. 705, L127
+
+%========== T
+\bibitem[Turck-Chi\'eze et al.(2004)]{ssm_prl} Turck-Chi\'eze, S., Couvidat, S., et al. 2004, Phys. Rev. Lett., 93, 211102
+
+
+%==============Y
+\bibitem[Yu \& Seaton(1987)]{opcd_4} Yu, Y., Seaton, M. J. 1987, J. Phys. B -- At. Mol. Opt. Phys., 20, 6409
+
+%============== Z
+\bibitem[Zatsarinny(2006)]{bspline_2006} Zatsarinny, O. 2006, Comp. Phys. Commun., 174, 273
+\bibitem[Zhang et al.(1989)]{dw_zhang} Zhang, H.L., Sampson, D.H., and Mohanty, A.K. 1989 Phys. Rev. A, 40, 616
+\bibitem[Zhang(1998)]{zhang_1998} Zhang, H. 1998, Phys. Rev. A, 57, 2640
+\bibitem[Zhang, Nahar \& Pradhan(1999)]{hsa_1999} Zhang, H., Nahar, S., \& Pradhan, A. 1999, J. Phys. B -- At. Mol. Opt. Phys., 32, 1459
+
+\end{thebibliography}
+\end{document}
