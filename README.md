@@ -212,3 +212,6 @@ In this folder, the FULL photoionization cross section of the bound levels of Fe
 
 ## III. paper/
 In this folder, it contains the scripts that I used to create the plots in the relevant paper (link to be updated).
+
+## IV. Dissertation/
+It contains the LaTex source code I used to create my dissertation.
