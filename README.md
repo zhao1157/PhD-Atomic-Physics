@@ -211,7 +211,7 @@ right end of BPRM is removed and not included in the opacity calculation.
 In this folder, the FULL photoionization cross section of the bound levels of FeXVII and FeXVIII are shown in log-log scale.
 
 ## III. paper/
-In this folder, it contains the scripts that I used to create the plots in the relevant paper (link to be updated).
+In this folder, it contains the scripts that I used to create the plots in my unpublished paper.
 
 ## IV. Dissertation/
 It contains the LaTex source code I used to create my dissertation.
